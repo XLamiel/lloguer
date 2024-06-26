@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "XL",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://127.0.0.1:5500/index.html",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [{
+                "url": "http://127.0.0.1:5500/js/app.js",
+                "path": "${workspaceFolder}/js/app.js"
+            }]
+        }
+    ]
+}

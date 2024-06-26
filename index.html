@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plazas de Parking</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Plazas de Parking Disponibles</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="./pages/admin.html">Admin</a>
+    </nav>
+    <main>
+        <section class="parking-spot">
+            <h2>Plaza 1</h2>
+            <p>Ubicación: Calle Principal, 123</p>
+            <p>Precio: $10/día</p>
+            <button onclick="reserveSpot('Plaza 1')">Reservar</button>
+        </section>
+        <section class="parking-spot">
+            <h2>Plaza 2</h2>
+            <p>Ubicación: Avenida Central, 456</p>
+            <p>Precio: $12/día</p>
+            <button onclick="reserveSpot('Plaza 2')">Reservar</button>
+        </section>
+    </main>
+    <footer>
+        <p>Contacto: info@parkingplazas.com</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
