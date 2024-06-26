@@ -71,7 +71,7 @@
         try {
             let res = await fetch("https://jsonplaceholder.typicode.com/users");
             let json = await res.json();
-            console.log(res, json);
+            //console.log(res, json);
             if (!res.ok) throw {status: res.status, statusTex: res.statusText}
 
             json.forEach(element => {
@@ -87,7 +87,7 @@
             $fetchAsync.innerHTML = `Error ${err.status}: ${message}`;
         }
         finally {
-            console.log("Esto siempre se ejecutará")
+            //console.log("Esto siempre se ejecutará")
         }
     }
     
@@ -101,7 +101,7 @@
     axios
         .get("https://jsonplaceholder.typicode.com/users")
         .then(res => {
-            console.log(res);
+            //console.log(res);
             let json = res.data;
             json.forEach(element => {
                 const $li = document.createElement("li");
@@ -111,12 +111,42 @@
             $axios.appendChild($fragment);
         })
         .catch(err => {
-            console.log(err.response);
+            //console.log(err.response);
             let message = err.response.statusText || "Ocurrio un error";
             $axios.innerHTML = `Error ${err.response.status}: ${message}`;
         })
         .finally(() => {
-            console.log("Esto se ejecutará independientemente del resultado de Axios")
+            //console.log("Esto se ejecutará independientemente del resultado de Axios")
         })
-    ;
-})()
+})();
+
+(() => {
+    const $axiosAsync = document.getElementById("axios-async");
+    const $fragment = document.createDocumentFragment();
+
+    async function getData() {
+        try {
+            let res = await axios.get("https://jsonplaceholder.typicode.com/users");
+            let json = await res.data;
+            //console.log(res, json);
+            json.forEach(element => {
+                const $li = document.createElement("li");
+                $li.innerHTML = `${element.name} -- ${element.email} -- ${element.phone}`;
+                $fragment.appendChild($li);
+            });
+            $axiosAsync.appendChild($fragment);
+
+            
+        }
+        catch (err) {
+            //console.log(err.response);
+            let message = err.response.statusText || "Ocurrio un error";
+            $axiosAsync.innerHTML = `Error ${err.response.status}: ${message}`;            
+        }
+        finally {
+            console.log("Esto siempre se ejecutará")
+        }
+    }
+
+    getData();
+})();
